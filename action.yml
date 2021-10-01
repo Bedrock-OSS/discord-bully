@@ -16,13 +16,13 @@ inputs:
     description: "JSON map of GitHub usernames to discord IDs"
     required: true
     default: >
-    {
-      'stirante':'210798002808422400',
-      'SirLich': '97792771619827712',
-      'MedicalJewel105': '738693702297321544',
-      'sermah': '305566858461970433',
-      'SmokeyStack': '530361907283099650'
-    }
+      {
+        'stirante':'210798002808422400',
+        'SirLich': '97792771619827712',
+        'MedicalJewel105': '738693702297321544',
+        'sermah': '305566858461970433',
+        'SmokeyStack': '530361907283099650'
+      }
 
 runs:
   using: "node12"
