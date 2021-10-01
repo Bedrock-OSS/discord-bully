@@ -8,13 +8,21 @@ inputs:
     description: "emoji id after blaming someone"
     required: true
     default: "<:PE_PandaBonk:885395101877166110>"
-#  repository:
-#    description: "GitHub repository owner and name. For example octocat/Hello-World"
-#    required: true
-#  usermap:
-#    description: "JSON map of GitHub usernames to discord IDs"
-#    required: true
-#    default: "{'stirante':'210798002808422400'}"
+  title:
+    description: "Discord embed title"
+    required: true
+    default: "Wiki deployment failed"
+  usermap:
+    description: "JSON map of GitHub usernames to discord IDs"
+    required: true
+    default: >
+    {
+      'stirante':'210798002808422400',
+      'SirLich': '97792771619827712',
+      'MedicalJewel105': '738693702297321544',
+      'sermah': '305566858461970433',
+      'SmokeyStack': '530361907283099650'
+    }
 
 runs:
   using: "node12"
