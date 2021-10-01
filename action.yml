@@ -1,0 +1,21 @@
+name: "Discord Bully"
+description: "Bully people into fixing failing build. Built specifically for Bedrock Wiki."
+inputs:
+  webhook:
+    description: "discord webhook url without /github"
+    required: true
+  emoji:
+    description: "emoji id after blaming someone"
+    required: true
+    default: "<:PE_PandaBonk:885395101877166110>"
+#  repository:
+#    description: "GitHub repository owner and name. For example octocat/Hello-World"
+#    required: true
+#  usermap:
+#    description: "JSON map of GitHub usernames to discord IDs"
+#    required: true
+#    default: "{'stirante':'210798002808422400'}"
+
+runs:
+  using: "node12"
+  main: "index.js"

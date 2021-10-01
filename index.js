@@ -1,14 +1,14 @@
 const { Webhook, MessageBuilder} = require('discord-webhook-node');
 const axios = require('axios');
+const core = require('@actions/core');
 
 // The following code is a messy piece of code I did while being half asleep. Sorry.
 
-const WEBHOOK_URL = `https://canary.discord.com/api/webhooks/${process.env.WEBHOOK_ID}/${process.env.WEBHOOK_TOKEN}`;
+const WEBHOOK_URL = core.getInput('webhook');
 
 const hook = new Webhook(WEBHOOK_URL);
 
-// const booli = "<:PE_PandaOldBooli:885396302781898822>";
-const EMOJI_BONK = "<:PE_PandaBonk:885395101877166110>";
+const EMOJI_BONK = core.getInput('emoji');
 
 const USER_MAP = {
   'stirante': '<@!210798002808422400>',
@@ -18,17 +18,14 @@ const USER_MAP = {
   'SmokeyStack': '<@!530361907283099650>'
 }
 
-const COMMIT_URL = 'https://github.com/Bedrock-OSS/bedrock-wiki/commit/';
-const RUN_URL = 'https://github.com/Bedrock-OSS/bedrock-wiki/runs/';
-const COMMIT_API = 'https://api.github.com/repos/Bedrock-OSS/bedrock-wiki/commits/';
-
-const RUN_ID = process.env.GITHUB_RUN_ID;
-const COMMIT_SHA = process.env.GITHUB_SHA;
+const COMMIT_URL = `https://github.com/${process.env.GITHUB_REPOSITORY}/commit/${process.env.GITHUB_SHA}`;
+const RUN_URL = `https://github.com/${process.env.GITHUB_REPOSITORY}/runs/${process.env.GITHUB_RUN_ID}`;
+const COMMIT_API = `https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/commits/${process.env.GITHUB_SHA}`;
 
 async function sendBullyMessage() {
   let author = null;
   try {
-    let response = await axios.get(COMMIT_API + COMMIT_SHA)
+    let response = await axios.get(COMMIT_API)
     author = response.data.author.login;
   } catch (e) {
     console.error('We actually failed to get the author');
@@ -38,8 +35,8 @@ async function sendBullyMessage() {
   let mb = new MessageBuilder()
     .setTitle("Wiki deployment failed")
     .setColor(0xeb4034)
-    .addField("Build failed after commit", COMMIT_URL + COMMIT_SHA)
-    .addField("Failed build", RUN_URL + RUN_ID)
+    .addField("Build failed after commit", COMMIT_URL)
+    .addField("Failed build", RUN_URL)
   if (author !== null) {
     if (USER_MAP[author] !== void 0) {
       mb.setText("I blame " + USER_MAP[author] + " " + EMOJI_BONK)
