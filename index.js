@@ -1,4 +1,4 @@
-const { Webhook, MessageBuilder} = require('discord-webhook-node');
+const {Webhook, MessageBuilder} = require('discord-webhook-node');
 const axios = require('axios');
 const core = require('@actions/core');
 const github = require('@actions/github');
@@ -6,7 +6,13 @@ const github = require('@actions/github');
 // The following code is a messy piece of code I did while being half asleep. Sorry.
 
 const EMOJI = core.getInput('emoji');
-const USER_MAP = JSON.parse(core.getInput('usermap'));
+const USER_MAP = {
+  'stirante': '210798002808422400',
+  'SirLich': '97792771619827712',
+  'MedicalJewel105': '738693702297321544',
+  'sermah': '305566858461970433',
+  'SmokeyStack': '530361907283099650'
+}
 const HOOK = new Webhook(core.getInput('webhook'));
 
 const COMMIT_URL = `https://github.com/${github.context.repo.owner}/${github.context.repo.repo}/commit/${github.context.sha}`;
