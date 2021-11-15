@@ -32,5 +32,5 @@ const USER_MAP = {
 
 ## TODO
 
- [ ] Move user map outside of the code to allow easier configuration.
- [ ] Move remaining message parts to the action config
+- [ ] Move user map outside of the code to allow easier configuration.
+- [ ] Move remaining message parts to the action config
