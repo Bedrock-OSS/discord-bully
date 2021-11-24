@@ -4,14 +4,22 @@ inputs:
   webhook:
     description: "discord webhook url without /github"
     required: true
-  emoji:
-    description: "emoji id after blaming someone"
-    required: true
-    default: "<:PE_PandaBonk:885395101877166110>"
   title:
     description: "Discord embed title"
     required: true
     default: "Wiki deployment failed"
+  message:
+    description: "Discord message content"
+    required: true
+    default: "I blame %author% <:PE_PandaBonk:885395101877166110> %newline%%gif%"
+  tenorGifApiKey:
+    description: "Tenor GIF API KEY"
+    required: true
+    default: ""
+  gifQuery:
+    description: "Tenor GIF search query"
+    required: true
+    default: "fail"
 
 
 runs:
