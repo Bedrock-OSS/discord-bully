@@ -11,7 +11,7 @@ inputs:
   message:
     description: "Discord message content"
     required: true
-    default: "I blame %author% <:PE_PandaBonk:885395101877166110> %newline%%gif%"
+    default: "I blame %author% <:PE_PandaBonk:885395101877166110>"
   tenorGifApiKey:
     description: "Tenor GIF API KEY"
     required: true
