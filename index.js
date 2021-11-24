@@ -39,10 +39,10 @@ async function sendBullyMessage() {
         .setColor(0xeb4034)
         .addField("Build failed after commit", COMMIT_URL)
         .addField("Failed build", RUN_URL)
+        .setImage(gif)
         .setText(MESSAGE
             .replace('%author%', author !== null ? (USER_MAP[author] !== void 0 ? "<@!" + USER_MAP[author] + ">" : author) : 'unknown author')
             .replace('%newline%', '\n')
-            .replace('%gif%', gif)
         )
     await HOOK.send(mb);
 }
