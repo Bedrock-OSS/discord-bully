@@ -4,22 +4,45 @@ inputs:
   webhook:
     description: "discord webhook url without /github"
     required: true
-  title:
-    description: "Discord embed title"
-    required: true
-    default: "Wiki deployment failed"
-  message:
-    description: "Discord message content"
-    required: true
-    default: "I blame %author% <:PE_PandaBonk:885395101877166110>"
   tenorGifApiKey:
     description: "Tenor GIF API KEY"
     required: true
     default: ""
-  gifQuery:
-    description: "Tenor GIF search query"
+  failTitle:
+    description: "Discord embed title when build fails"
+    required: true
+    default: "Wiki deployment failed"
+  failMessage:
+    description: "Discord message content when build fails"
+    required: true
+    default: "I blame %author% <:PE_PandaBonk:885395101877166110>"
+  gifFailQuery:
+    description: "Tenor GIF search query when build fails"
     required: true
     default: "fail"
+  failAuthor:
+    description: "Bot name to use when build fails"
+    required: true
+    default: "You messed up"
+  successTitle:
+    description: "Discord embed title when build succeeds"
+    required: true
+    default: "Wiki deployment succeeded"
+  successMessage:
+    description: "Discord message content when build succeeds"
+    required: true
+    default: "Thank you, %author%! <:PE_PandaBonk:885395101877166110>"
+  gifSuccessQuery:
+    description: "Tenor GIF search query when build succeeds"
+    required: true
+    default: "success"
+  successAuthor:
+    description: "Bot name to use when build succeeds"
+    required: true
+    default: "You did it"
+  failed:
+    description: "Whether the build failed or not"
+    required: true
 
 
 runs:
