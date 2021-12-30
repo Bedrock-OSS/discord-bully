@@ -13,7 +13,7 @@ Add this step to GitHub Action:
 ```yaml
       - name: Notify of failed build
         if: ${{ failure() }}
-        uses: Bedrock-OSS/discord-bully@v1.0.4
+        uses: Bedrock-OSS/discord-bully@v1.0.7
         with:
           webhook: https://canary.discord.com/api/webhooks/${{ secrets.WEBHOOK_ID }}/${{ secrets.WEBHOOK_TOKEN }}
           tenorGifApiKey: ${{ secrets.TENOR_GIF_API_KEY }}
