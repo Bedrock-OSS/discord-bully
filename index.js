@@ -91,6 +91,7 @@ async function sendBullyOrNotMessage() {
         } catch (e) {
             console.error('We failed to get previous runs');
             console.error(e);
+            return;
         }
         try {
             let response = await axios.get(TENOR_SUCCESS_GIF_URL);
